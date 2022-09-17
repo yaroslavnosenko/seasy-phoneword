@@ -1,9 +1,13 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { Keyboard } from '../components'
+import { useState } from 'react'
+import { Input, Keyboard } from '../components'
 import styles from '../styles/Home.module.scss'
+import { Key } from '../types'
 
 const Home: NextPage = () => {
+  const [input, setInput] = useState<string>('')
+
   return (
     <div className={styles.container}>
       <Head>
@@ -13,7 +17,11 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <Keyboard onKeyAdd={() => {}} onKeyRemove={() => {}} />
+        <Input value={input} />
+        <Keyboard
+          onKeyAdd={(key: Key) => setInput(input + key.id)}
+          onClear={() => setInput('')}
+        />
       </main>
     </div>
   )
