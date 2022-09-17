@@ -1,0 +1,37 @@
+$key-size: 64px;
+$key-gap: 12px;
+
+.keyboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: $key-gap;
+  max-width: $key-size * 3 + $key-gap * 2;
+}
+
+.key {
+  cursor: pointer;
+  width: $key-size;
+  height: $key-size;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10000px;
+  background: #e9e9e9;
+
+  h3 {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  span {
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  &:active {
+    opacity: 0.7;
+  }
+}
