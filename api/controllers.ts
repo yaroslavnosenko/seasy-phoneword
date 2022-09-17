@@ -11,6 +11,7 @@ const validateAndMutateRequest = (
   query: string | string[] | undefined
 ): [boolean, string[] | undefined] => {
   if (typeof query !== 'string') return [false, undefined]
+  if (query === '') return [false, undefined]
   const mutated: string[] = query.split('')
 
   const filtered: string[] = mutated.filter(

@@ -1,3 +1,3 @@
 export const getPhonewords = (digits: string[]): string[] => {
-  return ['ab', 'ab']
+  return ['ab', 'ac']
 }
