@@ -1,0 +1,38 @@
+$min-height: 2.5rem;
+
+.phonewords {
+  min-height: $min-height;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  div {
+    color: white;
+    font-weight: 500;
+    background: #3182ce;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    height: 2rem;
+    font-size: 1rem;
+    line-height: 1rem;
+    margin: 0.25rem;
+  }
+}
+
+.loading {
+  min-height: $min-height;
+  width: 10rem;
+  background: #edf2f7;
+  border-radius: 0.5rem;
+}
+
+.error {
+  min-height: $min-height;
+  padding: 0 2rem;
+  color: white;
+  background: #e53e3e;
+  border-radius: 0.5rem;
+  line-height: 2.5rem;
+  text-align: center;
+}

@@ -1,3 +1,5 @@
+import styles from '../styles/Phonewords.module.scss'
+
 interface Props {
   phonewords: string[]
   loading: boolean
@@ -5,11 +7,15 @@ interface Props {
 }
 
 export const Phonewords = (props: Props) => {
-  const { phonewords } = props
-  return (
-    <div>
+  const { phonewords, error, loading } = props
+  return loading ? (
+    <div className={styles.loading} />
+  ) : error ? (
+    <div className={styles.error}>Error, please enter correct numbers</div>
+  ) : (
+    <div className={styles.phonewords}>
       {phonewords.map((word: string) => (
-        <span key={word}>{word}</span>
+        <div key={word}>{word}</div>
       ))}
     </div>
   )
