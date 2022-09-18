@@ -1,5 +1,5 @@
 import type { NextApiRequest as Req, NextApiResponse as Res } from 'next'
-import { getPhonewords } from './services'
+import { getDummyPhonewords, filterRealWords } from './services'
 
 const ALLOWED: string[] = ['2', '3', '4', '5', '6', '7', '8', '9']
 
@@ -28,5 +28,7 @@ export const PhonewordsController = (req: Req, res: Res<PhonewordsRes>) => {
   if (!(isValid && mutated)) {
     return res.status(400).send({ data: null })
   }
-  return res.status(200).json({ data: getPhonewords(mutated) })
+  const dummy: string[] = getDummyPhonewords(mutated)
+  const data: string[] = filterRealWords(dummy)
+  return res.status(200).json({ data })
 }
